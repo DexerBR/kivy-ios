@@ -1,4 +1,4 @@
-from pythonforandroid.toolchain import Recipe
+from kivy_ios.toolchain import Recipe
 
 
 class PyAVCodecsRecipe(Recipe):

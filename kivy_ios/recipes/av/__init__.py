@@ -1,4 +1,4 @@
-from pythonforandroid.recipe import CythonRecipe
+from kivy_ios.toolchain import CythonRecipe
 from os.path import join
 
 
