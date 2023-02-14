@@ -22,6 +22,10 @@ class PyAVRecipe(CythonRecipe):
         )
         self.setup_extra_args = ["--ffmpeg-dir={}".format(build_dir)]
 
+        env[
+            "PKG_CONFIG"
+        ] = "ios-pkg-config"  # ios-pkg-config does not exists, is needed to disable the pkg-config usage.
+
         return env
 
 
