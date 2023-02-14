@@ -6,7 +6,7 @@ class PyAVRecipe(CythonRecipe):
 
     name = "av"
     library = "av.a"
-    version = "v10.0.0"
+    version = "10.0.0"
     url = "https://github.com/PyAV-Org/PyAV/archive/v{version}.zip"
 
     depends = ["python3", "cython", "ffmpeg", "av_codecs"]
