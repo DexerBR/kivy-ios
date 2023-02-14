@@ -18,7 +18,9 @@ class PyAVRecipe(CythonRecipe):
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
 
-        build_dir = join(self.ctx.dist_dir, "include", arch.arch, "ffmpeg")
+        build_dir = self.get_recipe('ffmpeg', self.ctx).get_build_dir(
+            arch.arch
+        )
         self.setup_extra_args = ["--ffmpeg-dir={}".format(build_dir)]
 
         return env
