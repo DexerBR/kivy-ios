@@ -1,4 +1,3 @@
-from pythonforandroid.toolchain import Recipe
 from pythonforandroid.recipe import CythonRecipe
 from os.path import join
 
