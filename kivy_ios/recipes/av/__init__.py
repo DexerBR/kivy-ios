@@ -22,7 +22,7 @@ class PyAVRecipe(PythonRecipe):
         build_dir = self.get_recipe("ffmpeg", self.ctx).get_build_dir(
             arch.arch
         )
-        env["--ffmpeg-dir={}".format(build_dir)]
+        env["--ffmpeg-dir"] = build_dir
         return env
 
     # def build_arch(self, arch):
