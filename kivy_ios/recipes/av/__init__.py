@@ -1,6 +1,8 @@
 from kivy_ios.toolchain import PythonRecipe
+
 # import sh
 # 6
+
 
 class PyAVRecipe(PythonRecipe):
 
@@ -17,7 +19,7 @@ class PyAVRecipe(PythonRecipe):
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
-        build_dir = self.get_recipe('ffmpeg', self.ctx).get_build_dir(
+        build_dir = self.get_recipe("ffmpeg", self.ctx).get_build_dir(
             arch.arch
         )
         env["--ffmpeg-dir={}".format(build_dir)]
