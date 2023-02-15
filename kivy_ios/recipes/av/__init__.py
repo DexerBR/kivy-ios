@@ -1,8 +1,8 @@
-from kivy_ios.toolchain import CythonRecipe
+from kivy_ios.toolchain import PythonRecipe
 # import sh
 
 
-class PyAVRecipe(CythonRecipe):
+class PyAVRecipe(PythonRecipe):
 
     name = "av"
     # library = "av.a"
