@@ -13,7 +13,7 @@ class PyAVRecipe(CythonRecipe):
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
     cythonize = False
-    # pre_build_ext = True
+    pre_build_ext = False
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
@@ -25,12 +25,11 @@ class PyAVRecipe(CythonRecipe):
         build_dir = self.get_recipe('ffmpeg', self.ctx).get_build_dir(
             arch.arch
         )
-        setup_extra_args = ["--ffmpeg-dir={}".format(build_dir)]
         shprint(
             hostpython3,
             "setup.py",
-            "build_ext",
-            setup_extra_args,
+            "build",
+            "--ffmpeg-dir={}".format(build_dir),
             _env=build_env,
         )
         self.biglink()
