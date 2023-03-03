@@ -1,10 +1,10 @@
-from kivy_ios.toolchain import PythonRecipe
+from kivy_ios.toolchain import CythonRecipe, shprint
+from os.path import join
+import sh
+import os
 
-# import sh
-# 6
 
-
-class PyAVRecipe(PythonRecipe):
+class PyAVRecipe(CythonRecipe):
 
     name = "av"
     # library = "av.a"
@@ -25,16 +25,19 @@ class PyAVRecipe(PythonRecipe):
         env["--ffmpeg-dir"] = build_dir
         return env
 
-    # def build_arch(self, arch):
-    #     hostpython3 = sh.Command(self.ctx.hostpython)
-    #     shprint(
-    #         hostpython3,
-    #         "setup.py",
-    #         "build",
-    #         "--ffmpeg-dir={}".format(build_dir),
-    #         _env=build_env,
-    #     )
-    #     self.biglink()
+    def build_arch(self, arch):
+        hostpython3 = sh.Command(self.ctx.hostpython)
+        build_dir = self.get_recipe("ffmpeg", self.ctx).get_build_dir(
+            arch.arch
+        )
+        shprint(
+            hostpython3,
+            "setup.py",
+            "build",
+            "--ffmpeg-dir={}".format(build_dir),
+            # _env=build_env,
+        )
+        self.biglink()
 
 
 recipe = PyAVRecipe()
