@@ -1,7 +1,5 @@
 from kivy_ios.toolchain import CythonRecipe, shprint
-from os.path import join
 import sh
-import os
 
 
 class PyAVRecipe(CythonRecipe):
