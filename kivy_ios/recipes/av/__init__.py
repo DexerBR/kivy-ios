@@ -12,7 +12,7 @@ class PyAVRecipe(CythonRecipe):
     depends = ["python3", "ffmpeg"]
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
-    
+
     cythonize = True
     pre_build_ext = False
 
