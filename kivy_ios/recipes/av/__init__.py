@@ -13,7 +13,7 @@ class PyAVRecipe(CythonRecipe):
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
     cythonize = False
-    pre_build_ext = False
+    # pre_build_ext = False
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
