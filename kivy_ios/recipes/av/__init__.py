@@ -30,7 +30,6 @@ class PyAVRecipe(CythonRecipe):
             "setup.py",
             "build",
             "--ffmpeg-dir={}".format(ffmpeg_dir),
-            # _env=build_env,
         )
         self.biglink()
 
