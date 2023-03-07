@@ -9,12 +9,12 @@ class PyAVRecipe(CythonRecipe):
     version = "10.0.0"
     url = "https://github.com/PyAV-Org/PyAV/archive/v{version}.zip"
 
-    depends = ["python3", "ffmpeg"]
+    depends = ["python3", "ffmpeg", "hostpython3", "ios", "host_setuptools3"]
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
 
-    cythonize = True
-    pre_build_ext = True
+    cythonize = False
+    pre_build_ext = False
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
