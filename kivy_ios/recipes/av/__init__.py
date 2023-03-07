@@ -15,6 +15,10 @@ class PyAVRecipe(CythonRecipe):
     cythonize = True
     pre_build_ext = True
 
+    def get_recipe_env(self, arch, with_flags_in_cc=True):
+        env = super().get_recipe_env(arch)
+        return env
+
     def build_arch(self, arch):
         hostpython3 = sh.Command(self.ctx.hostpython)
         ffmpeg_dir = self.get_recipe("ffmpeg", self.ctx).get_build_dir(
