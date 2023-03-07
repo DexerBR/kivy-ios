@@ -5,7 +5,7 @@ import sh
 class PyAVRecipe(CythonRecipe):
 
     name = "av"
-    library = "av.a"
+    # library = "av.a"
     version = "10.0.0"
     url = "https://github.com/PyAV-Org/PyAV/archive/v{version}.zip"
 
@@ -34,7 +34,7 @@ class PyAVRecipe(CythonRecipe):
             "setup.py",
             "build",
             "--ffmpeg-dir={}".format(build_dir),
-            # _env=build_env,
+            _env=build_dir,
         )
         self.biglink()
 
