@@ -13,8 +13,14 @@ class PyAVRecipe(CythonRecipe):
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
 
-    cythonize = False
-    pre_build_ext = False
+    pbx_frameworks = [
+        "CoreVideo", "CoreMedia", "CoreImage", "AVFoundation", "UIKit",
+        "CoreMotion"]
+    pbx_libraries = ["libiconv"]
+    pre_build_ext = True
+
+    # cythonize = False
+    # pre_build_ext = False
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
