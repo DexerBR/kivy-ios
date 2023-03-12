@@ -13,14 +13,8 @@ class PyAVRecipe(CythonRecipe):
     opt_depends = ["openssl"]
     hostpython_prerequisites = ["Cython"]
 
-    pbx_frameworks = [
-        "CoreVideo", "CoreMedia", "CoreImage", "AVFoundation", "UIKit",
-        "CoreMotion"]
-    pbx_libraries = ["libiconv"]
-    pre_build_ext = True
-
-    # cythonize = False
-    # pre_build_ext = False
+    cythonize = False
+    pre_build_ext = False
 
     def get_recipe_env(self, arch, with_flags_in_cc=True):
         env = super().get_recipe_env(arch)
@@ -35,7 +29,8 @@ class PyAVRecipe(CythonRecipe):
             hostpython3,
             "setup.py",
             "build",
-            "--ffmpeg-dir={}".format(ffmpeg_dir),
+            # "--ffmpeg-dir={}".format(ffmpeg_dir),
+            env=["--ffmpeg-dir={}".format(ffmpeg_dir)]
         )
         self.biglink()
 
