@@ -29,8 +29,7 @@ class PyAVRecipe(CythonRecipe):
             hostpython3,
             "setup.py",
             "build",
-            # "--ffmpeg-dir={}".format(ffmpeg_dir),
-            env=["--ffmpeg-dir={}".format(ffmpeg_dir)]
+            "--ffmpeg-dir={}".format(ffmpeg_dir),
         )
         self.biglink()
 
