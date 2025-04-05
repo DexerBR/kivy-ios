@@ -1,6 +1,5 @@
 from kivy_ios.toolchain import CythonRecipe
 from os.path import join
-import os
 import glob
 import shutil
 
