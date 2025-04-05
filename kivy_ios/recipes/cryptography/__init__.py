@@ -53,7 +53,7 @@ class CryptographyRecipe(CythonRecipe):
         sh.rustup("target", "add", build_target)
         
         return env
-    
+    # @
     def build_arch(self, arch):
         self.check_host_deps()
         
